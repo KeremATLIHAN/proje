@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+
+namespace ECommerce
+{
+    public class CartService
+    {
+        private List<Product> cartItems = new List<Product>();
+
+        public void AddToCart(Product product)
+        {
+            cartItems.Add(product);
+            Console.WriteLine($"\n[Sepet] {product.Name} sepete eklendi.");
+        }
+
+        public List<Product> GetCartItems()
+        {
+            return cartItems;
+        }
+
+        public decimal CalculateTotal()
+        {
+            decimal total = 0;
+            foreach (var item in cartItems)
+            {
+                total += item.Price;
+            }
+            return total;
+        }
+    }
+}
