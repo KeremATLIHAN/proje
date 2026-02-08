@@ -72,7 +72,19 @@ namespace ECommerce
                         }
                         break;
 
-                    
+                    case "3":
+                        Console.WriteLine("\n--- SEPETINIZ ---");
+                        var items = cartManager.GetCartItems();
+                        if (items.Count == 0) Console.WriteLine("Sepetiniz bos.");
+                        else
+                        {
+                            foreach (var item in items)
+                            {
+                                Console.WriteLine($"- {item.Name} ({item.Price} TL)");
+                            }
+                            Console.WriteLine($"TOPLAM: {cartManager.CalculateTotal()} TL");
+                        }
+                        break;
 
                     case "4":
                         decimal total = cartManager.CalculateTotal();
